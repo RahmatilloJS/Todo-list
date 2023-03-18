@@ -37,7 +37,7 @@ function showTodos() {
                 ${todo.text}
                     <div class="todo-icons">
                         <span class="opacity-50 me-2">${todo.time}</span>
-                        <img src="img/edit.svg" alt="edit image" width="25" height="25">
+                        <img onclick="editTodo(${i})" src="img/edit.svg" alt="edit image" width="25" height="25">
                         <img onclick="deleteTodo(${i})" src="img/delete.svg" alt="edit image" width="25" height="25">
                     </div>
           </li>
@@ -127,7 +127,7 @@ function setCompleted(i){
 
 formEdit.addEventListener('submit', (e)=>{
     e.preventDefault()
-    const todoText = formEdit['input-edit'].value.trim()
+    const todoText = formEdit["input-edit"].value.trim()
     formEdit.reset()
     if(todoText.length){
         todos.splice(editItemId, 1, {text: todoText, time: getTime(), completed: false})
@@ -138,7 +138,7 @@ formEdit.addEventListener('submit', (e)=>{
 })
 
 
-function aditTodo(id){
+function editTodo(id){
     openModal()
     editItemId = id
 }
